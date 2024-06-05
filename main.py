@@ -12,8 +12,8 @@ gemini_pro_player_dict = {}
 default_model_dict = {}
 
 error_info="⚠️⚠️⚠️\nSomething went wrong !\nplease try to change your prompt or contact the admin ! - @Lordsakunaa"
-before_generate_info="🤖Generating🤖"
-download_pic_notify="🤖Loading picture🤖"
+before_generate_info="🔍..."
+download_pic_notify="🔍..."
 
 n = 30  #Number of historical records to keep
 
@@ -251,7 +251,7 @@ async def main():
     @bot.message_handler(commands=["start"])
     async def gemini_handler(message: Message):
         try:
-            await bot.reply_to( message , escape("𝐓𝐨 𝐔𝐬𝐞 𝐓𝐡𝐢𝐬 𝐁𝐎𝐓 𝐣𝐨𝐢𝐧 𝐨𝐮𝐫 𝐜𝐡𝐚𝐧𝐧𝐞𝐥 𝐟𝐢𝐫𝐬𝐭 - [ @purplebotz ]\n\n If already Joined ignore this!\nWelcome, you can ask me questions now. \nFor example: `Who is john lennon?`"), parse_mode="MarkdownV2")
+            await bot.reply_to( message , escape("𝐓𝐨 𝐔𝐬𝐞 𝐓𝐡𝐢𝐬 𝐁𝐎𝐓 𝐣𝐨𝐢𝐧 𝐨𝐮𝐫 𝐜𝐡𝐚𝐧𝐧𝐞𝐥 𝐟𝐢𝐫𝐬𝐭 - [ @purplebotz ]\n\n If already Joined ignore this!\nWelcome, you can ask me questions now. \nFor example: `Who is john lennon?` or send me any photo"), parse_mode="MarkdownV2")
         except IndexError:
             await bot.reply_to(message, error_info)
 
