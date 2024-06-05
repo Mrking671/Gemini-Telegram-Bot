@@ -12,8 +12,8 @@ gemini_pro_player_dict = {}
 default_model_dict = {}
 
 error_info="⚠️⚠️⚠️\nSomething went wrong !\nplease try to change your prompt or contact the admin ! - @Lordsakunaa"
-before_generate_info="🔍..."
-download_pic_notify="🔍..."
+before_generate_info="JOIN - [ @purplebotz ]"
+download_pic_notify="JOIN - [ @purplebotz]"
 
 n = 30  #Number of historical records to keep
 
