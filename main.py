@@ -12,14 +12,8 @@ gemini_player_dict = {}
 gemini_pro_player_dict = {}
 default_model_dict = {}
 
-error_info="⚠️⚠️⚠️\nSomething went wrong !\nplease try to change your prompt or contact the admin ! - @Lordsakunaa"
-before_generate_info="btn = [[
-                InlineKeyboardButton("🧿 Join 🧿", url="https://t.me/purplebotz")
-            ],[
-                InlineKeyboardButton('🗳 Tutorial 🗳', url="https://t.me/purplebotz")
-            ]]
-            await message.reply("CLICK ON DOWNLOAD TO GET YOUR REQUESTED MOVIE\nYou not verified today! Kindly verify now. 🔐", reply_markup=InlineKeyboardMarkup(btn))
-            return"
+error_info="⚠️⚠️⚠️\nSomething went wrong !\nplease try again after few seconds or contact the admin ! - @Lordsakunaa"
+before_generate_info="⭕JOIN CHANNEL FIRST⭕ - ∆ @purplebotz ∆"
 download_pic_notify="JOIN - [ @purplebotz]"
 
 n = 30  #Number of historical records to keep
@@ -258,7 +252,7 @@ async def main():
     @bot.message_handler(commands=["start"])
     async def gemini_handler(message: Message):
         try:
-            await bot.reply_to( message , escape("𝐓𝐨 𝐔𝐬𝐞 𝐓𝐡𝐢𝐬 𝐁𝐎𝐓 𝐣𝐨𝐢𝐧 𝐨𝐮𝐫 𝐜𝐡𝐚𝐧𝐧𝐞𝐥 𝐟𝐢𝐫𝐬𝐭 - [ @purplebotz ]\n\n If already Joined ignore this!\nWelcome, you can ask me questions now. \nFor example: `Who is john lennon?` or send me any photo"), parse_mode="MarkdownV2")
+            await bot.reply_to( message , escape("⭕𝐓𝐨 𝐔𝐬𝐞 𝐓𝐡𝐢𝐬 𝐁𝐎𝐓 𝐣𝐨𝐢𝐧 𝐨𝐮𝐫 𝐜𝐡𝐚𝐧𝐧𝐞𝐥 𝐟𝐢𝐫𝐬𝐭⭕ - [ @purplebotz ]\n\n\n If already Joined ignore this!\nWelcome, you can ask me questions now. \nFor example: `Who is john lennon?` or send me any photo"), parse_mode="MarkdownV2")
         except IndexError:
             await bot.reply_to(message, error_info)
 
