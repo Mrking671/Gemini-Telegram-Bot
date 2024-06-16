@@ -13,7 +13,13 @@ gemini_pro_player_dict = {}
 default_model_dict = {}
 
 error_info="⚠️⚠️⚠️\nSomething went wrong !\nplease try to change your prompt or contact the admin ! - @Lordsakunaa"
-before_generate_info="JOIN - [ @purplebotz ]"
+before_generate_info="btn = [[
+                InlineKeyboardButton("🧿 Join 🧿", url="https://t.me/purplebotz")
+            ],[
+                InlineKeyboardButton('🗳 Tutorial 🗳', url="https://t.me/purplebotz")
+            ]]
+            await message.reply("CLICK ON DOWNLOAD TO GET YOUR REQUESTED MOVIE\nYou not verified today! Kindly verify now. 🔐", reply_markup=InlineKeyboardMarkup(btn))
+            return"
 download_pic_notify="JOIN - [ @purplebotz]"
 
 n = 30  #Number of historical records to keep
