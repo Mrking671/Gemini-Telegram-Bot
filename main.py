@@ -13,7 +13,7 @@ gemini_pro_player_dict = {}
 default_model_dict = {}
 
 error_info="⚠️⚠️⚠️\nSomething went wrong !\nplease try again after few seconds or contact the admin ! - @Lordsakunaa"
-before_generate_info="⭕JOIN CHANNEL FIRST⭕ - ∆ @purplebotz ∆"
+before_generate_info="⭕JOIN CHANNEL FIRST⭕ - ∆ @purplebotz ∆\n\n#⃣MOVIES#⃣ - https://t.me/+nNxrEiZPumNlMjBl\n#⃣ANIME#⃣ - https://t.me/+nKz9rQJ893BlMGRl\n\n𝐰𝐚𝐢𝐭..."
 download_pic_notify="JOIN - [ @purplebotz]"
 
 n = 30  #Number of historical records to keep
