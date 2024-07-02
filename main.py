@@ -6,6 +6,10 @@ import re
 import telebot
 from telebot.async_telebot import AsyncTeleBot
 from telebot.types import  Message
+from utils import verify_user, check_token
+from utils import check_verification, get_token
+from info import VERIFY, VERIFY_TUTORIAL, BOT_USERNAME
+
 
 gemini_player_dict = {}
 gemini_pro_player_dict = {}
@@ -250,6 +254,28 @@ async def main():
     # Init commands
     @bot.message_handler(commands=["start"])
     async def gemini_handler(message: Message):
+        client = message
+        data = message.command[1]
+    if data.split("-", 1)[0] == "verify": # set if or elif it depend on your code
+        userid = data.split("-", 2)[1]
+        token = data.split("-", 3)[2]
+        if str(message.from_user.id) != str(userid):
+            return await message.reply_text(
+                text="<b>Invalid link or Expired link !</b>",
+                protect_content=True
+            )
+        is_valid = await check_token(client, userid, token)
+        if is_valid == True:
+            await message.reply_text(
+                text=f"<b>Hey {message.from_user.mention}, You are successfully verified !\nNow you have unlimited access for all files till today midnight.</b>",
+                protect_content=True
+            )
+            await verify_user(client, userid, token)
+        else:
+            return await message.reply_text(
+                text="<b>Invalid link or Expired link !</b>",
+                protect_content=True
+            )
         try:
             await bot.reply_to( message , escape("⭕𝐓𝐨 𝐔𝐬𝐞 𝐓𝐡𝐢𝐬 𝐁𝐎𝐓 𝐣𝐨𝐢𝐧 𝐨𝐮𝐫 𝐜𝐡𝐚𝐧𝐧𝐞𝐥 𝐟𝐢𝐫𝐬𝐭⭕ - [ @purplebotz ]\n\n\n If already Joined ignore this!\nWelcome, you can ask me questions now. \nFor example: `Who is john lennon?` or send me any photo"), parse_mode="MarkdownV2")
         except IndexError:
@@ -303,6 +329,19 @@ async def main():
     
     @bot.message_handler(func=lambda message: message.chat.type == "private", content_types=['text'])
     async def gemini_private_handler(message: Message):
+        client = Message
+        if not await check_verification(client, message.from_user.id) and VERIFY == True:
+        btn = [[
+            InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{BOT_USERNAME}?start="))
+        ],[
+            InlineKeyboardButton("How To Open Link & Verify", url=VERIFY_TUTORIAL)
+        ]]
+        await message.reply_text(
+            text="<b>You are not verified !\nKindly verify to continue !</b>",
+            protect_content=True,
+            reply_markup=InlineKeyboardMarkup(btn)
+        )
+        return
         m = message.text.strip()
 
         if str(message.from_user.id) not in default_model_dict:
