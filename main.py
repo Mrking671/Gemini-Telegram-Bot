@@ -254,6 +254,7 @@ async def main():
     # Init commands
     @bot.message_handler(commands=["start"])
     async def gemini_handler(message: Message):
+        data = message
         data = message.command[1]
     if data.split("-", 1)[0] == "verify": # set if or elif it depend on your code
         userid = data.split("-", 2)[1]
